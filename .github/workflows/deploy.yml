@@ -30,7 +30,7 @@ jobs:
     - name: Build, tag, and push the Docker image
       run: |
         docker build -t mlops .
-        docker tag mlops:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/mlops:latest
+        docker tag mlops:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/hanjaejun/mlops:latest
         docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/hanjaejun/mlops:latest
 
     - name: Deploy to ECS
