@@ -3,7 +3,7 @@ name: Deploy FastAPI to EC2
 on:
   push:
     branches:
-      - master  # main 브랜치에 푸시될 때만 트리거
+      - master  # main 브랜치에 푸시될 때만 트리거1
 
 jobs:
   deploy:
