@@ -26,7 +26,7 @@ jobs:
 
     - name: Zip the function
       run: |
-        zip -r9 function.zip .
+        zip -r9 function.zip . -x ".venv/*" ".git/*" "tests/*" "*.pyc" .
 
     - name: Deploy to AWS Lambda
       uses: appleboy/lambda-action@v0.2.0
