@@ -32,6 +32,6 @@ jobs:
         key: ${{ secrets.EC2_SSH_KEY }}     # SSH 개인 키
         script: |
           cd /home/ec2-user/fastapi-mlops
-          source .venv/bin/activate
+          git pull origin master
           pip3 install -r requirements.txt
-          sudo systemctl restart app.service
+          uvicorn inference:app --reload --host 0.0.0.0
