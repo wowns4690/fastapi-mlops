@@ -33,5 +33,7 @@ jobs:
         script: |
           cd /home/ec2-user/fastapi-mlops
           git pull origin master
+          python3 -m venv .venv
+          source .venv/bin/activate
           pip3 install -r requirements.txt
           uvicorn inference:app --reload --host 0.0.0.0
