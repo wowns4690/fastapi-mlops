@@ -28,4 +28,10 @@ jobs:
           source .venv/bin/activate
           pip3 install --upgrade pip
           pip3 install -r requirements.txt
-          nohup uvicorn inference:app --reload --host 0.0.0.0 --port 8000 & diswon
+
+          # 8000 포트를 사용 중인 프로세스를 종료
+          if sudo lsof -i :8000; then
+            sudo kill -9 $(sudo lsof -t -i :8000)
+          fi
+
+          nohup uvicorn inference:app --reload --host 0.0.0.0 --port 8000 & disown
