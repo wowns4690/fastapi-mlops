@@ -34,4 +34,6 @@ jobs:
             sudo kill -9 $(sudo lsof -t -i :8000)
           fi
           sudo systemctl restart app
+
+          # 백그라운드 실행이 안먹힘
           # nohup uvicorn inference:app --reload --host 0.0.0.0 --port 8000 & disown
