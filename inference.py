@@ -3,6 +3,7 @@ import pandas as pd
 from fastapi import FastAPI
 from schemas import PredictIn, PredictOut
 import joblib
+from mangum import Mangum
 
 
 def get_model():
@@ -21,3 +22,5 @@ def predict(data: PredictIn) -> PredictOut:
     df = pd.DataFrame([data.dict()])
     pred = MODEL.predict(df).item()
     return PredictOut(iris_class=pred)
+
+handler = Mangum(app)
