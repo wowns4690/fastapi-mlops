@@ -33,5 +33,5 @@ jobs:
           if sudo lsof -i :8000; then
             sudo kill -9 $(sudo lsof -t -i :8000)
           fi
-
-          nohup uvicorn inference:app --reload --host 0.0.0.0 --port 8000 & disown
+          sudo systemctl restart app
+          # nohup uvicorn inference:app --reload --host 0.0.0.0 --port 8000 & disown
